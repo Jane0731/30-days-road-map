@@ -46,8 +46,17 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 2. 手機功能存取使用 - 在開發混合語言程式時，所採用的框架有機會無法存取使用手機的原生功能，即相機、聯繫人、短訊、硬件設備按鈕、地圖、推送通知等。
 ### Progressive Web App
 2016年 Google 提出的概念， PWA 的存在是為結合網站和 App 二者的特性，透過網站呈現如 APP 般的瀏覽優點，提供更好的用戶體驗。因為 PWA 的本質是網站，程式語言就是用Html5、Css3、JS，當然也沒有跨平台需要不同程式版本的問題，更新內容也是直接從伺服端更改就可以了。
-#### Progressive Web App 優勢
-#### Progressive Web App 劣勢
+#### Progressive Web App 特性
+- 漸進式：使用者無需擔心使用哪個瀏覽器，也可以正常使用PWA。
+- 回應式：PWA 適應包括電腦、手機、平板等其他常用裝置在內的多種瀏覽環境。
+- 連接獨立性：利用服務工作執行緒，PWA 可以離線或網路情況較差的環境下工作。
+- 接近原生應用：為使用者提供更接近原生應用的互動體驗與導航。
+- 保持新版：服務工作執行緒的更新機制，PWA 可以保證使用者永遠使用最新版本。
+- 安全：通過 HTTPS，PWA 可以阻止通訊竊聽，而且能保證內容不被篡改。
+- 可被發現：能夠執行 SEO 優化，讓使用者快速找到網站，增加網站經營成效。
+- 可被組裝：像是推播通知等特性，吸引使用者注意、主動和使用者互動，提升用戶回流率。
+- 可被安裝：可以藉由 Add To Home，如同 App，會新增一個 icon，可以直接將網站加到手機桌面上做切換使用，不需要再透過 App Store 下載安裝。
+- 可被連結：只需輕鬆地分享URL便可連結至PWA中，無需複雜的安裝步驟。
 
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
@@ -61,3 +70,5 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 9. [【前端的 Flutter 新手村】Day2-為什麼選擇Flutter？React Native、原生開發、PWA不好嗎？](https://ithelp.ithome.com.tw/articles/10216825)
 10. [Native App和Hybrid App的分別（下）
 ](https://technine.io/zh_hant/native-app%e5%92%8chybrid-app%e7%9a%84%e5%88%86%e5%88%a5%ef%bc%88%e4%b8%8b%ef%bc%89/)
+11. [Day 03 - 30 天 Progressive Web App 學習筆記 - 什麼是 PWA?](https://ithelp.ithome.com.tw/articles/10186584)
+12. [漸進式網路應用程式 維基百科](https://zh.wikipedia.org/zh-tw/%E6%B8%90%E8%BF%9B%E5%BC%8F%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F)
