@@ -57,7 +57,43 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 - 可被組裝：像是推播通知等特性，吸引使用者注意、主動和使用者互動，提升用戶回流率。
 - 可被安裝：可以藉由 Add To Home，如同 App，會新增一個 icon，可以直接將網站加到手機桌面上做切換使用，不需要再透過 App Store 下載安裝。
 - 可被連結：只需輕鬆地分享URL便可連結至PWA中，無需複雜的安裝步驟。
+## App 開發流程
+### 確認主題
+1. 多多觀察生活中的事情，找到生活中讓你覺得不方便的事情。
+2. 也可以多看科技周刊、新聞等，看目前大部分的主流方向是在做什麼，可以如何地去優化。
+3. 有時靈感會突然出現在你的腦海裡，可能是一些天馬行空的想法，不管是什麼內容都可以記錄下來，或許能幫助你找到方向。
 
+### 市場調查與使用者研究
+1. 落實想法之後就要針對主題做桌面研究、田野調查、競品分析、市場分析來暸解產品的市場發展性，以及透過使用者研究畫出用戶 Presona 及用戶旅程等等定調 TA （目標用戶，Target User）以及可以切入的用戶亮點及痛點。
+
+### 使用者體驗設計
+1. 建立你對產品的想像雛形。
+2. 確認流程後產出產品規格，方便工程人員進行開發。
+
+
+延伸閱讀：[Wireframe是什麼？認識線框稿的使用方式及重要性](https://www.nss.com.tw/app-development-detail-all/)
+### 介面設計
+1. 決定產品的視覺部分，像是 Primary Color 等，將 Wireframe 畫面變成我們實際上會操作的畫面。
+2. 介面設計包含主視覺、顏色、插圖、Component 等元件。完整一點的會建立 UI Guildline 方便產品後續延伸。
+
+延伸閱讀：[介面設計規範（UI Design Guideline）的撰寫方式](https://uiclub.tw/2021/09/03/how-to-write-a-uidesign-guideline/)
+### 技術開發
+1. 實際將前面完成的介面以及規格書進行開發。
+2. 包括資料庫、伺服器、建置元件、介面開發、API 串接等流程。
+3. 開發過程中工程師可能會和專案經理、UI/UX 設計師不斷的溝通確認來保持產品與原初的構想一致，不會走到半路突然歪掉。
+### 產品測試
+1. 製作完成的產品會先經過測試確保產品跟設計師的構想相同，又分成內部測試跟外部測試。
+2. 內部測試會由團隊內部人員或是專業的測試工程師建立測試流程，驗證主要功能在日常及特殊情形下是否都能正常運作。
+3. 內部測試完成後會先進行微調，再接著外部測試流程，此時會請開發團隊外的人員來試用產品，以使用者的角度去提出覺得好用以及需要改善的點。
+
+延伸閱讀：[App軟體測試總結](https://ppfocus.com/0/di7508664.html)
+### 修改與調整
+1. 測試完成後根據使用者的回饋調整細節。
+2. 當程式修改完畢後，會再進入複測。
+### APP 軟體上架
+1. 上架到 App 對應的平台。iOS 會上架到 App store，Android 會上架到 Google play 上。 
+2. iOS 的審核是相對嚴格且複雜的，在這個階段要記得計算一下預計上架的時間往回推算 1-2 週，避免遇上上架失敗需要重新寄送 Mail 與 Apple 溝通的情形。
+3. 準備上架需要的上架圖以及 App 的 icon 圖標、上架文案跟 metadata 等。
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
 2. [學Android程式設計，第一步先安裝Android Studio 開發工具](https://walker-a.com/archives/6806)
@@ -72,3 +108,4 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 ](https://technine.io/zh_hant/native-app%e5%92%8chybrid-app%e7%9a%84%e5%88%86%e5%88%a5%ef%bc%88%e4%b8%8b%ef%bc%89/)
 11. [Day 03 - 30 天 Progressive Web App 學習筆記 - 什麼是 PWA?](https://ithelp.ithome.com.tw/articles/10186584)
 12. [漸進式網路應用程式 維基百科](https://zh.wikipedia.org/zh-tw/%E6%B8%90%E8%BF%9B%E5%BC%8F%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F)
+13. [開發手機APP要經過多少流程？所有開發APP細節一次告訴你](https://www.nss.com.tw/app-development-detail-all/)
