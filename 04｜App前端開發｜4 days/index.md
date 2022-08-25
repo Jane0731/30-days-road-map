@@ -523,3 +523,4 @@ binding.button.setOnLongClickListener{
 11. [Day 03 - 30 天 Progressive Web App 學習筆記 - 什麼是 PWA?](https://ithelp.ithome.com.tw/articles/10186584)
 12. [漸進式網路應用程式 維基百科](https://zh.wikipedia.org/zh-tw/%E6%B8%90%E8%BF%9B%E5%BC%8F%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F)
 13. [開發手機APP要經過多少流程？所有開發APP細節一次告訴你](https://www.nss.com.tw/app-development-detail-all/)
+14.[Kotlin x Android｜APP 開發到上架完整實戰攻略](https://hiskio.com/courses/1276/about)
