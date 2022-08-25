@@ -1,4 +1,4 @@
-# App 開發
+# 第一天
 ## 開發 App 的所需工具
 因 Apple 採用的是封閉系統，而不是使用開放系統。故 iOS 的應用程式只能在 Apple 自己的裝置如 iPhone 與 iPad 中運作。和 Android 的應用程式不同的是，Android 系統可以在不同製造商所製作的行動裝置中運作。如果想要同時開發 iOS 及 Android 的應用程式，就需使用 Mac 電腦做開發。
 ### 使用 Mac 電腦開發 App
@@ -57,6 +57,7 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 - 可被組裝：像是推播通知等特性，吸引使用者注意、主動和使用者互動，提升用戶回流率。
 - 可被安裝：可以藉由 Add To Home，如同 App，會新增一個 icon，可以直接將網站加到手機桌面上做切換使用，不需要再透過 App Store 下載安裝。
 - 可被連結：只需輕鬆地分享URL便可連結至PWA中，無需複雜的安裝步驟。
+# 第二天
 ## App 開發流程
 ### 確認主題
 1. 多多觀察生活中的事情，找到生活中讓你覺得不方便的事情。
@@ -95,6 +96,7 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 2. iOS 的審核是相對嚴格且複雜的，在這個階段要記得計算一下預計上架的時間往回推算 1-2 週，避免遇上上架失敗需要重新寄送 Mail 與 Apple 溝通的情形。
 3. 準備上架需要的上架圖以及 App 的 icon 圖標、上架文案跟 metadata 等。
 > 本篇文章內容將介紹如何使用 Android Studio 來開發 Kotlin，先請讀者自行將環境安裝好，本段落將不再多做介紹。
+# 第三天
 ## 使用Kotlin 開發Android 應用程式
 ### Kotlin 開發 App 基本介紹
 #### 創建 App 
@@ -501,6 +503,11 @@ binding.button.setOnLongClickListener{
 	false
 }
 ```
+# 第四天
+### 小試身手
+1. 拉出兩個輸入框，一個輸入帳號一個輸入密碼
+2. 當按下 Button 送出後，將帳號及密碼印到下方的 TextView 上
+![小試身手](小試身手.png)
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
 2. [學Android程式設計，第一步先安裝Android Studio 開發工具](https://walker-a.com/archives/6806)
