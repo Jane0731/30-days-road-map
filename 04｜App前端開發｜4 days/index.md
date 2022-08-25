@@ -94,6 +94,143 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 1. 上架到 App 對應的平台。iOS 會上架到 App store，Android 會上架到 Google play 上。 
 2. iOS 的審核是相對嚴格且複雜的，在這個階段要記得計算一下預計上架的時間往回推算 1-2 週，避免遇上上架失敗需要重新寄送 Mail 與 Apple 溝通的情形。
 3. 準備上架需要的上架圖以及 App 的 icon 圖標、上架文案跟 metadata 等。
+> 本篇文章內容將介紹如何使用 Android Studio 來開發 Kotlin，先請讀者自行將環境安裝好，本段落將不再多做介紹。
+## 使用Kotlin 開發Android 應用程式
+### Kotlin 開發 App 基本介紹
+#### 創建 App 
+1. 選擇 Phone and Tablet，然後點選 Empty Activity，按下 Next
+![App創建-1](App創建-1.png)
+2. 填寫資訊，按下 Finish
+![App創建-2](App創建-2.png)
+3. 等待創建
+![App創建-3](App創建-3.png)
+#### App 專案資料夾 & 檔案介紹
+![App資料夾介紹](App資料夾介紹.png)
+1. manifests/AndroidManifest.xml - 定義 App 名稱、icon、權限、分頁等等基本資料
+2. java/第一個資料夾 - 主要程式碼
+3. java/第二個資料夾 - UI 測試
+4. java/第三個資料夾 - 單元測試
+5. res/drawable - 圖片
+6. res/layout - 版面
+7. res/mipmap - 圖片
+8. res/values - 共用的資料
+#### 在模擬器上執行 App
+1. 新增模擬器，點選 Device Manager
+![App模擬器-1](App模擬器-1.png)
+2. 點選右上按鈕， Create device
+![App模擬器-2](App模擬器-2.png)
+3. 選擇手機型號，按 Next
+![App模擬器-3](App模擬器-3.png)
+4. 選擇 OS 版本，如果旁邊有出現 Download ，請先安裝
+![App模擬器-4](App模擬器-4.png)
+5. 設定設備名字以及手機方向
+![App模擬器-5](App模擬器-5.png)
+6. 點選綠色三角形按鈕啟動模擬器
+![App模擬器-6](App模擬器-6.png)
+#### 綁定 UI 元件
+先設定元件 ID
+![綁定元件ID](綁定元件ID.png)
+##### 透過 findViewById 來綁定元件
+1. 綁定元件 ID 
+> 在 onCreate 這個函式中，所有頁面的初始化都在這裡設定
+
+![綁定元件ID-1](綁定元件ID-1.png)
+##### 透過 ViewBinding 來綁定元件
+> 相較 findViewById 而言方便許多，也比較不容易出錯
+
+1. 在 build.gradle 設置啟用 viewBinding
+```
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.example.myapplication"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding=true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+```
+2. build.gradle 有更改的時候，需要點擊Sync Now (更新設置)
+![綁定元件ID-2](綁定元件ID-2.png)
+3. MainActivity.kt 的 class 加入一個屬性，並且改寫 setContentView
+> 如果 UI 叫 activity_main，屬性型別就會是 ActivityMainBinding
+
+```
+package com.example.myapplication
+
+import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.myapplication.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
+}
+```
+4. 綁定元件，使用 binding.元件ID 就可以
+```
+package com.example.myapplication
+
+import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import com.example.myapplication.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.button.setOnClickListener{
+            binding.name.text="Test"
+        }
+    }
+}
+```
+> 使用 ViewBinding 為何比較不容易出錯呢?因為只會綁定定義好的 UI 中的元件 ID，其他 UI 檔案的元件 ID 是無法使用的，但是 findViewById  可以綁定其他 UI 檔案的元件 ID
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
 2. [學Android程式設計，第一步先安裝Android Studio 開發工具](https://walker-a.com/archives/6806)
