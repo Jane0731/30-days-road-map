@@ -233,9 +233,9 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 > 使用 ViewBinding 為何比較不容易出錯呢?因為只會綁定定義好的 UI 中的元件 ID，其他 UI 檔案的元件 ID 是無法使用的，但是 findViewById  可以綁定其他 UI 檔案的元件 ID
-#### Kotiln 基本概念
-##### Kotiln 的變數
-###### 變數的定義
+### Kotiln 基本概念
+#### Kotiln 的變數
+##### 變數的定義
 > 命名方式須遵守小駝峰方式
 - `val` 用於唯讀變數，一旦給值就無法再修改
 ```
@@ -245,7 +245,7 @@ val name:String = "Jane"
 ```
 var name:String = "Jane"
 ```
-###### 基本資料型態
+##### 基本資料型態
 | 型別 | 大小 | 最小值~最大值 |
 | --- | --- | --- |
 | Float | 2^32 | 1.4E-45~3.4028235E38 |
@@ -264,8 +264,8 @@ val score=0
 val scoreString=score.toString()
 val scoreDouble=score.toDouble()
 ```
-##### 函式 function
-###### 函式的定義
+#### 函式 function
+##### 函式的定義
 > 命名方式須遵守小駝峰方式，盡量符合此函式的動作命名
 
 ![函式](函式.png)
@@ -278,7 +278,7 @@ fun sum(c:Int,d:Int):Int{
 	  return c+d
 }
 ```
-###### 函式的多型
+##### 函式的多型
 如果函式裡面的參數型別/參數的數量不一樣，名稱是可以重複的
 ```
 fun sum(a:Int,b:Int):Int{
@@ -291,7 +291,7 @@ fun sum(c:String,d:String,e:String):String{
     return c+d+e
 }
 ```
-###### vararg 函式的參數
+##### vararg 函式的參數
 > 可以一次傳多個參數，為 list
 ```
 fun sum(vararg a:Int):Int{
@@ -301,7 +301,7 @@ fun sum(a:Int,b:Int):Int{
     return a+b
 }
 ```
-###### 函式呼叫
+##### 函式呼叫
 > 如果按照順傳參數的話可以不用寫上變數名，不按照的話就要寫上變數名
 ```
 fun main(){
@@ -311,13 +311,13 @@ fun main(){
 fun sum(age:Int,name:String){
 }
 ```
-##### Null Safety
-###### 何謂 Null
+#### Null Safety
+##### 何謂 Null
 指變數沒有值。
 
 舉例：有一門考試但有學生缺考，則該缺考學生的成績為 null
 
-###### 變數定義 Null
+##### 變數定義 Null
 > ? 代表此變數值可能為 null
 ```
 val name:String?= null
@@ -326,7 +326,7 @@ val name:String?= null
 ```
 val nameLength=name?.length?:0
 ```
-##### 條件式判斷
+#### 條件式判斷
 1. 基本款
 ```
 if(name=="Jane"){
@@ -345,7 +345,7 @@ val level= if (name == "Jane") "Good"
 	else if (name == "RJ") "bad"
 	else "soso"
 ```
-##### When 表達式
+#### When 表達式
 讓原本越臭越長的 if，化為更精簡的寫法，跟 switch 很像
 > Win 快捷鍵：alt+enter
 
@@ -369,6 +369,136 @@ val level=when (name) {
 	else -> {
 		"soso"
 	}
+}
+```
+### Kotlin 基礎 UI 元件
+#### Textview 文字顯示
+##### Textview 的屬性
+- text 要顯示的文字
+- maxLines 最大的行數
+- textColor 文字顏色
+- textStyle 文字樣式
+- gravity 文字的方向
+
+還有很多請慢慢摸索補充 🙂
+```
+<TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textColor="#1D668A"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+```
+#### Edittext 文字輸入框
+##### Edittext 的屬性
+- hint 提示文字
+- inputType 輸入欄類型
+    - 文字類型
+        - none
+        - text(任何字元)
+        - textMultiLine(多行)
+        - textUri(網址)
+        - textEmailAddress(電子郵件地址)
+        - textPassword(密碼)
+    - 數值類型
+        - number(數字/只允許輸入0~9)
+        - phone(電話號碼)
+        - datetime
+        - date(日期/可輸入數字與斜線)
+        - time(時間/可輸入數字、分號與P、A、M三個英文字母)
+- imeOptions 鍵盤右下的符號
+    - actionNext 往下一個
+    - actionSearch 搜尋
+    - actionGo 根據輸入的內容去執行
+    - actionSend 用在送出
+    - actionDone 輸入完畢，但不一定會送出
+- password 輸入的資料會以 * 呈現
+- textColor 文字顏色
+- textStyle 文字樣式
+- textSize 文字大小
+
+還有很多請慢慢摸索補充 🙂
+```
+<EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="280dp"
+        android:ems="10"
+        android:hint="請輸入姓名"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+```
+##### Edittext 事件
+1. 輸入完畢按下送出鍵時的事件 - `setOnEditorActionListener` 
+- 通過 textview.text 取得目前輸入框的值
+- 通過 i 取得 imeOptions 的種類
+- 事件處理寫在 keyEvent
+```
+package com.example.myapplication
+
+import android.app.Activity
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import android.view.inputmethod.EditorInfo
+import com.example.myapplication.databinding.ActivityMainBinding
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding:ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding=ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.editTextTextPersonName.setOnEditorActionListener { textView, i, keyEvent ->
+            if(i==EditorInfo.IME_ACTION_SEARCH){
+                val searchVal=textView.text.toString()
+                println(searchVal)
+                true
+            }
+            false
+        }
+    }
+
+}
+```
+#### Button 按鈕
+##### Button 的屬性
+- text 按鈕文字
+- textSize 按鈕文字大小
+- backgroundTint 按鈕背景顏色
+- visibility 按鈕顯示方式
+    - visible 顯示
+    - invisible 隱藏
+    - gone 消失(即為不存在)
+##### Button 事件
+1. 按鈕點擊事件 - `setOnClickListener`
+```
+binding.button.setOnClickListener {
+	println("Button Click")
+}
+```
+
+2. 按鈕長按點擊事件 - `setOnLongClickListener`
+
+> 最後的 true/false 是為了告知此事件已結束
+> 
+- 如果是 true 的話，代表不需要進行進一步的事件處理
+- 如果是 false 的話，代表需要進行進一步的事件處理
+```
+binding.button.setOnLongClickListener{
+	println("Button Long Click")
+	false
 }
 ```
 ## 參考資料
