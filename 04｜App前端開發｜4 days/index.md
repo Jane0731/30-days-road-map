@@ -102,7 +102,9 @@ Android Studio是由 Google 與 JetBrains 合作所開發的新一代 Android ID
 ![App創建-1](App創建-1.png)
 2. 填寫資訊，按下 Finish
 ![App創建-2](App創建-2.png)
+
 3. 等待創建
+
 ![App創建-3](App創建-3.png)
 #### App 專案資料夾 & 檔案介紹
 ![App資料夾介紹](App資料夾介紹.png)
@@ -231,6 +233,144 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 > 使用 ViewBinding 為何比較不容易出錯呢?因為只會綁定定義好的 UI 中的元件 ID，其他 UI 檔案的元件 ID 是無法使用的，但是 findViewById  可以綁定其他 UI 檔案的元件 ID
+#### Kotiln 基本概念
+##### Kotiln 的變數
+###### 變數的定義
+> 命名方式須遵守小駝峰方式
+- `val` 用於唯讀變數，一旦給值就無法再修改
+```
+val name:String = "Jane"
+```
+- `var` 用於需要重新修改數值的情況
+```
+var name:String = "Jane"
+```
+###### 基本資料型態
+| 型別 | 大小 | 最小值~最大值 |
+| --- | --- | --- |
+| Float | 2^32 | 1.4E-45~3.4028235E38 |
+| Double | 2^64 | -4.9E-324~1.79769313 |
+| Int | 2^32 | -2147583648~2147583647 |
+| Long | 2^64 | -9223372036854775808~9223372036854775807 |
+| Short | 2^16 | -32768~32767 |
+| Byte | 2^8 | -128~127 |
+| String |  | “字串”，雙引號表示 |
+| Char |  | ‘字元’，單引號表示 |
+| Boolean |  | True、False |
+
+如果想將變數轉資料型態的話，使用 to<資料型態>
+```
+val score=0
+val scoreString=score.toString()
+val scoreDouble=score.toDouble()
+```
+##### 函式 function
+###### 函式的定義
+> 命名方式須遵守小駝峰方式，盡量符合此函式的動作命名
+
+![函式](函式.png)
+每個函式的名稱都不能重複，下面為錯誤使用範例
+```
+fun sum(a:Int,b:Int):Int{
+    return a+b
+}
+fun sum(c:Int,d:Int):Int{
+	  return c+d
+}
+```
+###### 函式的多型
+如果函式裡面的參數型別/參數的數量不一樣，名稱是可以重複的
+```
+fun sum(a:Int,b:Int):Int{
+    return a+b
+}
+fun sum(c:Int,d:Int,e:Int):Int{
+    return c+d+e
+}
+fun sum(c:String,d:String,e:String):String{
+    return c+d+e
+}
+```
+###### vararg 函式的參數
+> 可以一次傳多個參數，為 list
+```
+fun sum(vararg a:Int):Int{
+    return a.sum()
+}
+fun sum(a:Int,b:Int):Int{
+    return a+b
+}
+```
+###### 函式呼叫
+> 如果按照順傳參數的話可以不用寫上變數名，不按照的話就要寫上變數名
+```
+fun main(){
+	sum(name="Jane",age=1)
+  sum(2,"Jane")
+}
+fun sum(age:Int,name:String){
+}
+```
+##### Null Safety
+###### 何謂 Null
+指變數沒有值。
+
+舉例：有一門考試但有學生缺考，則該缺考學生的成績為 null
+
+###### 變數定義 Null
+> ? 代表此變數值可能為 null
+```
+val name:String?= null
+```
+如果是 null 值就當作它是 0，使用 `?:`
+```
+val nameLength=name?.length?:0
+```
+##### 條件式判斷
+1. 基本款
+```
+if(name=="Jane"){
+	println("Name is Jane")
+}
+else if(name=="RJ"){
+  println("Name is RJ")
+}
+else{
+  println("啥也不是")
+}
+```
+2. 透過表達式回傳值
+```
+val level= if (name == "Jane") "Good"
+	else if (name == "RJ") "bad"
+	else "soso"
+```
+##### When 表達式
+讓原本越臭越長的 if，化為更精簡的寫法，跟 switch 很像
+> Win 快捷鍵：alt+enter
+
+1. 基本款
+```
+when (name) {
+	"Jane" -> println("Name is Jane")
+  "RJ" ->  println("Name is RJ")
+  else -> println("啥也不是")      
+}
+```
+2. 透過表達式回傳數值
+```
+val level=when (name) {
+	"Jane" -> {
+		"Good"
+	}
+	"RJ" -> {
+		"bad"
+	}
+	else -> {
+		"soso"
+	}
+}
+```
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
 2. [學Android程式設計，第一步先安裝Android Studio 開發工具](https://walker-a.com/archives/6806)
