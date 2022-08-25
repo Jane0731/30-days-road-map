@@ -507,6 +507,7 @@ binding.button.setOnLongClickListener{
 ### 小試身手
 1. 拉出兩個輸入框，一個輸入帳號一個輸入密碼
 2. 當按下 Button 送出後，將帳號及密碼印到下方的 TextView 上
+
 ![小試身手](小試身手.png)
 ## 參考資料
 1. [第1 章- 開發工具、學習方法與App 點子](https://www.appcoda.com.tw/learnswift/get-started.html)
